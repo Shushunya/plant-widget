@@ -4,11 +4,11 @@ const appWindow = getCurrentWindow();
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // close button event listener
-  const closeBtn = document.getElementById("close-btn");
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      appWindow.close();
-    });
-  }
+    // close button event listener
+    const closeBtn = document.getElementById("close-btn");
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            appWindow.close();
+        });
+    }
 });

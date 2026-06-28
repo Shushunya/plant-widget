@@ -19,7 +19,6 @@
         "transparent": true,
         "resizable": false,
         "closable": true
-
       },
       {
         "label": "main",
@@ -29,7 +28,6 @@
         "height": 600,
         "decorations": true
       }
-      
     ],
     "security": {
       "csp": null
