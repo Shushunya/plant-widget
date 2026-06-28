@@ -10,24 +10,23 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "label": "widget",
-        "title": "Plantidget",
-        "url": "widget.html",
-        "width": 350,
-        "height": 350,
-        "decorations": false,
-        "transparent": true,
-        "resizable": false,
-        "closable": true
-      },
-      {
         "label": "main",
         "title": "Plant Data Management",
         "url": "main.html",
         "width": 800,
         "height": 600,
         "decorations": true
+      },
+      {
+        "label": "widget",
+        "title": "Plantidget",
+        "url": "widget.html",
+        "width": 350,
+        "height": 350,
+        "decorations": false,
+        "transparent": true
       }
+      
     ],
     "security": {
       "csp": null

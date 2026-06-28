@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="widget.css">
   <title>Plant App</title>
 </head>
 
@@ -14,12 +15,12 @@
 
     <div class="drag-region" data-tauri-drag-region>
       <span>Plants</span>
-      <button id="close-btn" class="header-btn">✕</button>
+      <button class="header-btn" id="close-btn">✕</button>
     </div>
 
     <div class="content">
 
-      <div class="calendar-widget">
+      <div class="calendar-container">
 
         <div class="calendar-header">
           <button class="nav-btn" id="prevMonth">&lt;</button>
@@ -27,7 +28,7 @@
           <button class="nav-btn" id="nextMonth">&gt;</button>
         </div>
 
-        <div class="calendar-grid days-of-week">
+        <div class="calendar-grid-days-of-week">
           <div>S</div>
           <div>M</div>
           <div>T</div>
@@ -45,7 +46,7 @@
 
   </div>
 
-  <script src="widget.js"></script>
+  <script type="module" ="/widget.js"></script>
 </body>
 
 </html>

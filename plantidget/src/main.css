@@ -1,0 +1,8 @@
+/* main.css */
+body {
+  background-color: var(--bg-light);
+}
+
+.dashboard-container {
+  padding: 20px;
+}

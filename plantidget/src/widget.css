@@ -1,40 +1,5 @@
-/* CSS Variables */
-:root {
-    /* Primary Brand Colors */
-    --color-primary: #4CAF50;
-    /* Classic Plant Green */
-    --color-secondary: #81C784;
-    /* Lighter Green for accents */
-
-    /* Backgrounds & Surfaces */
-    --color-bg-main: #F4F6F4;
-    /* Off-white for the main dashboard */
-    --color-bg-widget: rgba(255, 255, 255, 0.85);
-    /* Slightly transparent for the widget */
-
-    /* Typography */
-    --color-text-main: #2E332E;
-    /* Dark grey for readable text */
-    --color-text-muted: #7A827A;
-    /* Lighter grey for dates/notes */
-
-    /* Status Colors */
-    --color-water: #4FC3F7;
-    /* Blue for watering days */
-    --color-fertilize: #FFB74D;
-    /* Orange for fertilizing */
-}
-
-
-/* Basics */
-body,
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: sans-serif;
-    /*background-color: transparent;*/
-    background-color: var(--color-bg-main);
+body {
+    background-color: transparent;
 }
 
 .widget-container {
@@ -77,19 +42,6 @@ html {
     pointer-events: none;
 }
 
-.content {
-    padding: 15px;
-    flex-grow: 1;
-}
-
-.calendar-header {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    width: 100%;
-
-}
-
 
 /* HEADER CLOSE BUTTON */
 .header-btn {
@@ -111,4 +63,17 @@ html {
 .header-btn:hover {
     color: #ff5252;
     /* Turns red on hover */
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+
+}
+
+.calendar-grid-days-of-week{
+    display: flex;
+    flex-direction: column-reverse;
 }
