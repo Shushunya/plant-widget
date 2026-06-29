@@ -5,35 +5,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plant App</title>
-
   <link rel="stylesheet" href="styles.css" />
-  <script type="module" src="/main.js" defer></script>
 </head>
 
 <body>
   <main class="container">
-    <div class="drag-region" data-tauri-drag-region>
+    <div class="header" data-tauri-drag-region>
       <span>Plants</span>
-      <button class="header-btn" id="close-btn">✕</button>
+      <button class="header-btn" id="closeBtn">Close</button>
     </div>
-    <h1>Welcome to Tauri</h1>
 
-    <div class="row">
-      <a href="https://tauri.app" target="_blank">
-        <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
-      </a>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-        <img src="/assets/javascript.svg" class="logo vanilla" alt="JavaScript logo" />
-      </a>
+    <div class="content">
+      <div class="side-bar">
+        <p>A</p>
+      </div>
+
+      <div class="calendar">
+        <div class="header">
+          <button class="nav-btn" id="prevMonth">&lt;</button>
+          <p id="monthYear">A</p>
+          <button class="nav-btn" id="nextMonth">&gt;</button>
+        </div>
+
+        <div class="content">
+          <div class="week-days-header">
+            <div>S</div>
+            <div>M</div>
+            <div>T</div>
+            <div>W</div>
+            <div>T</div>
+            <div>F</div>
+            <div>S</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <p>Click on the Tauri logo to learn more about the framework</p>
-
-    <form class="row" id="greet-form">
-      <input id="greet-input" placeholder="Enter a name..." />
-      <button type="submit">Greet</button>
-    </form>
-    <p id="greet-msg"></p>
   </main>
+  <script type="module" src="main.js"></script>
+
 </body>
 
 </html>
