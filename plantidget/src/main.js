@@ -1,18 +1,37 @@
-const { invoke } = window.__TAURI__.core;
+// const { invoke } = window.__TAURI__.core;
 
-let greetInputEl;
-let greetMsgEl;
+const { getCurrentWindow } = window.__TAURI__.window;
+const appWindow = getCurrentWindow();
 
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+const monthYearElement = document.getElementById("monthYear");
+const closeWidgetBtn = document.getElementById("closeBtn");
+
+function getCurrentMonthYear() {
+  const now = new Date();
+  const year = now.getFullYear();
+  let month = months[now.getMonth()];
+
+  if (monthYearElement) {
+    monthYearElement.textContent = `${month} ${year}`;
+    console.log("Success")
+  } else {
+    console.error("Fail: Could not find an element with the ID 'monthYear'.");
+  }
+
 }
 
+
 window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
-  });
+
+  getCurrentMonthYear();
+
+  const closeBtn = document.getElementById("closeBtn");
+  if (closeWidgetBtn) {
+    closeWidgetBtn.addEventListener("click", () => {
+      appWindow.close();
+    });
+  }
+
 });
