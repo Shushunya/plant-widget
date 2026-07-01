@@ -16,6 +16,7 @@
   /* Dark grey for readable text */
   --color-text-muted: #7A827A;
   /* Lighter grey for dates/notes */
+  --color-border: #ddd;
 
   /* Status Colors */
   --color-water: #4FC3F7;
@@ -24,8 +25,6 @@
   /* Orange for fertilizing */
 
   --red: #ff5252;
-
-  font-family: sans-serif;
 }
 
 /* Basics */
@@ -33,7 +32,12 @@ body,
 html {
   margin: 0;
   padding: 0;
-  /* font-family: sans-serif; */
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+button {
+  font-family: 'Courier New', Courier, monospace;
 }
 
 main {
@@ -75,7 +79,7 @@ main {
 .side-bar {
   width: 10%;
   background-color: var(--color-bg-main, #f4f4f4);
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,33 +90,47 @@ main {
   display: flex;
   flex: 1;
   flex-direction: column;
-  /* padding: 15px; */
-}
+  padding: 0.3rem;
 
-.calendar .header {
-  background-color: transparent;
-  color: var(--color-text-main);
-  border-bottom: 1px solid #ddd;
+  .month-header {
+    background-color: transparent;
+    color: var(--color-text-main);
+    border-bottom: 1px solid var(--color-border);
 
-  height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-}
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    .nav-btn {
+      background: none;
+      border: none;
+      color: var(--color-text-main);
+    }
+    
+    .nav-btn:hover { 
+      color: var(--color-water);
+    }
+  }
 
-.calendar .nav-btn {
-  background: none;
-  border: none;
-}
+  
+  .calendar-content {
+    display: flex;
+    flex-direction: column;
 
-.calendar .nav-btn:hover {
-  color: var(--red);
-}
+    .week-days-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
 
-.calendar .week-days-header {
-  display: flex;
-  gap: 5px;
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      background-color: dodgerblue;
+    }
+  }
 }
