@@ -63,6 +63,7 @@ main {
   color: var(--color-bg-main);
 
   cursor: pointer;
+  -webkit-app-region: no-drag;
 }
 
 .header-btn:hover {
@@ -104,6 +105,9 @@ main {
     gap: 10px;
     margin: 0;
     padding: 0;
+
+    user-select: none;
+
     .nav-btn {
       background: none;
       border: none;
@@ -116,21 +120,48 @@ main {
   }
 
   
+  
   .calendar-content {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 
     .week-days-header {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(7, [col-start] 1fr);
       align-items: center;
       justify-content: center;
       gap: 5px;
+      user-select: none;
     }
 
     .calendar-grid {
       display: grid;
-      grid-template-columns: auto auto auto;
-      background-color: dodgerblue;
+      grid-template-columns: repeat(7, [col-start] 1fr);
+      justify-content: center;
+      align-items: center;
+
+      
+    }
+
+    .calendar-day {
+      aspect-ratio: 1;
+
+      background-color: var(--color-bg-main);
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      align-items: center;
+      justify-content: center;
+    }
+    .calendar-day:hover {
+      background-color: var(--color-secondary);
+    }
+    .empty-day {
+      background-color: transparent;
+      pointer-events: none;
     }
   }
 }
