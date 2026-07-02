@@ -27,6 +27,7 @@
   --red: #ff5252;
 }
 
+
 * {
   box-sizing: border-box;
 }
@@ -62,6 +63,9 @@ main {
   user-select: none;
   padding: 0.2rem 0.4rem;
   color: var(--color-bg-main);
+
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 .header-btn {
@@ -75,6 +79,18 @@ main {
 
 .header-btn:hover {
   color: var(--red);
+}
+
+.header-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-bg-main);
+  transition: fill 0.2s ease; /* Makes the hover effect smooth */
+}
+
+/* The Hover Effect */
+.header-btn:hover svg {
+  fill: var(--red);
 }
 
 .content {
@@ -92,6 +108,12 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 5px;
+}
+
+.side-bar svg {
+  height: 16px;
+  width: 16px;
+  fill: #ff5252;
 }
 
 .calendar {
@@ -120,9 +142,16 @@ main {
       border: none;
       color: var(--color-text-main);
     }
+
+    .nav-btn svg {
+      height: 18px;
+      width: 18px;
+      fill: var(--color-text-main);
+    }
     
-    .nav-btn:hover { 
-      color: var(--color-water);
+    .nav-btn svg:hover { 
+      fill: var(--color-water);
+      cursor: pointer;
     }
   }
 
@@ -174,6 +203,39 @@ main {
     .empty-day {
       background-color: transparent;
       pointer-events: none;
+    }
+
+    .water-day {
+      display: flex;
+      aspect-ratio: 1;
+
+      /* background-color: var(--color-bg-main); */
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      align-items: center;
+      justify-content: center;
+
+      background-color: var(--color-water);
+      font-weight: bold;
+    }
+
+    .fertilize-day {
+      display: flex;
+      aspect-ratio: 1;
+
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      align-items: center;
+      justify-content: center;
+
+      font-weight: bold;
+      background-color: var(--color-fertilize);
     }
   }
 }

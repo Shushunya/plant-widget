@@ -12,10 +12,11 @@
       {
         "title": "plantidget",
         "url": "index.html",
-        "width": 300,
-        "height": 300,
+        "width": 250,
+        "height": 270,
         "decorations": false,
-        "resizable": false
+        "resizable": false,
+        "alwaysOnTop": true
       }
     ],
     "security": {

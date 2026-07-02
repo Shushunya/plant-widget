@@ -44,7 +44,6 @@ function renderCalendarGrid() {
   for (let i = 1; i <= daysInMonth; i++) {
     const newDiv = document.createElement("div");
     const dateString = `${currYear}-${currMonth}-${i}`;
-
     newDiv.classList.add("calendar-day");
     newDiv.setAttribute("data-date", dateString);
     newDiv.innerText = `${i}`;
