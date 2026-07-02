@@ -7,6 +7,7 @@ const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 // ELEMENTS
 const monthYearElement = document.getElementById("monthYear");
 const calendarGrid = document.getElementById("calendarDays");
+const calendarFragment = new DocumentFragment();
 // BUTTONS
 const closeWidgetBtn = document.getElementById("closeBtn");
 const prevMonthBtn = document.getElementById("prevMonth");
@@ -31,25 +32,25 @@ function renderCalendarGrid() {
   if (!calendarGrid) return;
   calendarGrid.innerHTML = "";
 
-  const firstDayOfMonth = new Date(currYear, currMonth, 1).getDay();
-  console.log(`First day of ${months[currMonth]}-${currYear} is ${weekDays[firstDayOfMonth]}`)
-  
+  const firstDayOfMonth = new Date(currYear, currMonth, 1).getDay(); // starting with 0 for Sunday
   const daysInMonth = new Date(currYear, currMonth + 1, 0).getDate();
-  console.log(daysInMonth)
 
-  for (let i = 0; i < firstDayOfMonth; i++) {
+  for (let i = 0; i < firstDayOfMonth - 1; i++) {
     const newDiv = document.createElement("div");
     newDiv.classList.add("empty-day");
-    calendarGrid.appendChild(newDiv);
-    console.log("Empty day")
+    calendarFragment.append(newDiv);
   }
 
   for (let i = 1; i <= daysInMonth; i++) {
     const newDiv = document.createElement("div");
+    const dateString = `${currYear}-${currMonth}-${i}`;
+
     newDiv.classList.add("calendar-day");
+    newDiv.setAttribute("data-date", dateString);
     newDiv.innerText = `${i}`;
-    calendarGrid.appendChild(newDiv);
+    calendarFragment.append(newDiv);
   }
+  calendarGrid.append(calendarFragment);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
