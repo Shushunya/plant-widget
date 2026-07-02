@@ -57,6 +57,15 @@ window.addEventListener("DOMContentLoaded", () => {
   currMonth = now.getMonth();
   currYear = now.getFullYear();
   updateMonthDisplay();
+  // Get the theme button
+  const themeToggleBtn = document.getElementById("themeToggleBtn");
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+      // .toggle() adds the class if it's missing, and removes it if it's there!
+      document.body.classList.toggle("dark-theme");
+    });
+  }
 
   if (nextMonthBtn) {
     nextMonthBtn.addEventListener("click", () => {

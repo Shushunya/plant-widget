@@ -27,6 +27,17 @@
   --red: #ff5252;
 }
 
+/* When the body has the 'dark-theme' class, use these colors instead */
+body.dark-theme {
+  --color-bg-main: #1E231F;       /* Very dark green-grey */
+  --color-bg-widget: #121412;     /* Almost solid black for the widget */
+  --color-text-main: #E4E8E4;     /* Off-white for readability */
+  --color-text-muted: #8A938A;    /* Darker grey for muted text */
+  --color-border: #2C332C;        /* Subtle dark border */
+  
+  /* Notice we DON'T need to change --color-primary or your status colors! 
+     They will stay green/blue/orange and pop beautifully against the dark background. */
+}
 
 * {
   box-sizing: border-box;
