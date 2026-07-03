@@ -1,42 +1,34 @@
 :root {
-  /* Primary Brand Colors */
-  --color-primary: #4CAF50;
-  /* Classic Plant Green */
-  --color-secondary: #81C784;
-  /* Lighter Green for accents */
-
-  /* Backgrounds & Surfaces */
-  --color-bg-main: #F4F6F4;
-  /* Off-white for the main dashboard */
-  --color-bg-widget: rgba(255, 255, 255, 0.85);
-  /* Slightly transparent for the widget */
+  --color-bg-main: #f9f8f6;
+  --color-bg-widget: #ffffff;
+  --color-primary: #355326;
+  --color-secondary: #7c9982;
 
   /* Typography */
-  --color-text-main: #2E332E;
-  /* Dark grey for readable text */
-  --color-text-muted: #7A827A;
-  /* Lighter grey for dates/notes */
-  --color-border: #ddd;
+  --color-text-main: #23301a;
+  --colot-text-muted: #b39d96;
+  --color-border: #e7caa9;
 
   /* Status Colors */
-  --color-water: #4FC3F7;
-  /* Blue for watering days */
-  --color-fertilize: #FFB74D;
-  /* Orange for fertilizing */
+  --color-water: #7393A7;
+  --color-fertilize: #C47D5E;
+  --color-alert: #994B45;
+  --color-hover: #558976;
 
-  --red: #ff5252;
+  --font-main: sans-serif;
+  --font-mono: monospace;
 }
 
-/* When the body has the 'dark-theme' class, use these colors instead */
 body.dark-theme {
-  --color-bg-main: #1E231F;       /* Very dark green-grey */
-  --color-bg-widget: #121412;     /* Almost solid black for the widget */
-  --color-text-main: #E4E8E4;     /* Off-white for readability */
-  --color-text-muted: #8A938A;    /* Darker grey for muted text */
-  --color-border: #2C332C;        /* Subtle dark border */
-  
-  /* Notice we DON'T need to change --color-primary or your status colors! 
-     They will stay green/blue/orange and pop beautifully against the dark background. */
+  --color-bg-main: #1a2016;
+  --color-bg-widget: #222b1e;
+  --color-primary: #7c9982;
+  --color-secondary: #355326;
+
+  --color-text-main: #f9f8f6;
+  --color-text-muted: #b39d96;
+
+  --color-border: #355326;
 }
 
 * {
@@ -48,13 +40,9 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: var(--font-main);
   font-size: 15px;
   overflow: hidden;
-}
-
-button {
-  font-family: 'Courier New', Courier, monospace;
 }
 
 main {
@@ -75,33 +63,28 @@ main {
   padding: 0.2rem 0.4rem;
   color: var(--color-bg-main);
 
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--font-mono);
   font-weight: bold;
 }
 
 .header-btn {
   background: transparent;
   border: none;
-  color: var(--color-bg-main);
 
   cursor: pointer;
   -webkit-app-region: no-drag;
-}
-
-.header-btn:hover {
-  color: var(--red);
 }
 
 .header-btn svg {
   width: 18px;
   height: 18px;
   fill: var(--color-bg-main);
-  transition: fill 0.2s ease; /* Makes the hover effect smooth */
+  transition: fill 0.2s ease;
+  /* Makes the hover effect smooth */
 }
 
-/* The Hover Effect */
 .header-btn:hover svg {
-  fill: var(--red);
+  fill: var(--color-hover);
 }
 
 .content {
@@ -110,22 +93,47 @@ main {
 
 }
 
+
 /* SIDEBAR */
-.side-bar {
+.sidebar {
   width: 10%;
+  min-width: 20px;
   background-color: var(--color-bg-main, #f4f4f4);
   border-right: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: 5px;
+
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .sidebar-btn {
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+
+  }
+
+  .sidebar-btn svg {
+    height: 16px;
+    width: 16px;
+    fill: var(--color-text-muted, #b39d96);
+    transition: fill 0.2s ease;
+  }
+
+  .sidebar-btn:hover svg {
+    fill: var(--color-secondary);
+  }
 }
 
-.side-bar svg {
-  height: 16px;
-  width: 16px;
-  fill: #ff5252;
-}
+
 
 .calendar {
   display: flex;
@@ -151,36 +159,40 @@ main {
     .nav-btn {
       background: none;
       border: none;
-      color: var(--color-text-main);
     }
 
     .nav-btn svg {
       height: 18px;
       width: 18px;
       fill: var(--color-text-main);
+      transition: fill 0.2s ease;
     }
-    
-    .nav-btn svg:hover { 
+
+    .nav-btn svg:hover {
       fill: var(--color-water);
       cursor: pointer;
     }
   }
 
-  
-  
   .calendar-content {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    user-select: none;
+
+
 
     .week-days-header {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 5px;
-      user-select: none;
-    
+
       justify-items: center;
-  
+
       margin-bottom: 10px;
       font-weight: bold;
       font-size: 0.85rem;
@@ -189,15 +201,15 @@ main {
 
     .calendar-grid {
       display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-auto-rows: 1fr;
+      flex: 1;
+      height: 100%;
       gap: 5px;
-      grid-template-columns: repeat(7, [col-start] 1fr);
-      justify-content: center;
-      align-items: center;
     }
 
     .calendar-day {
       display: flex;
-      aspect-ratio: 1;
 
       background-color: var(--color-bg-main);
       border-radius: 8px;
@@ -208,44 +220,21 @@ main {
       align-items: center;
       justify-content: center;
     }
+
     .calendar-day:hover {
       background-color: var(--color-secondary);
     }
+
     .empty-day {
       background-color: transparent;
       pointer-events: none;
     }
 
     .water-day {
-      display: flex;
-      aspect-ratio: 1;
-
-      /* background-color: var(--color-bg-main); */
-      border-radius: 8px;
-      cursor: pointer;
-      color: var(--color-text-main);
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
-      align-items: center;
-      justify-content: center;
-
       background-color: var(--color-water);
-      font-weight: bold;
     }
 
     .fertilize-day {
-      display: flex;
-      aspect-ratio: 1;
-
-      border-radius: 8px;
-      cursor: pointer;
-      color: var(--color-text-main);
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
-      align-items: center;
-      justify-content: center;
-
-      font-weight: bold;
       background-color: var(--color-fertilize);
     }
   }
