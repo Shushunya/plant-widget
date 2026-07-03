@@ -10,13 +10,20 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "plantidget",
-        "url": "index.html",
+        "title": "Plant Dashboard",
+        "label": "main",
+        "url": "main.html",
+        "visible": false
+      },
+      {
+        "title": "Plant Widget",
+        "url": "widget.html",
+        "label": "widget",
         "width": 250,
         "height": 270,
         "decorations": false,
         "resizable": false,
-        "alwaysOnTop": true
+        "alwaysOnTop":true
       }
     ],
     "security": {
