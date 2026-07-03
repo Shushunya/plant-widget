@@ -1,0 +1,37 @@
+main {
+  background-color: var(--color-bg-widget, #ffffff);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+.header {
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  padding: 0.2rem 0.4rem;
+  color: var(--color-bg-main);
+
+  font-family: var(--font-mono);
+  font-weight: bold;
+}
+
+.header-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-bg-main);
+}
+
+.header-btn:hover svg {
+  fill: var(--color-hover);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+
+}

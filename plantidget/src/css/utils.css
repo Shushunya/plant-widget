@@ -1,0 +1,12 @@
+.icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+}
+
+.icon-btn svg {
+    width: 16px;
+    height: 16px;
+    transition: fill 0.2s ease;
+}

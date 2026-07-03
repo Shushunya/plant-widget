@@ -1,0 +1,24 @@
+.sidebar {
+  width: 10%;
+  min-width: 20px;
+  background-color: var(--color-bg-main, #f4f4f4);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-btn svg {
+    fill: var(--color-text-muted, #b39d96);
+  }
+
+  .sidebar-btn:hover svg {
+    fill: var(--color-secondary);
+  }
+}

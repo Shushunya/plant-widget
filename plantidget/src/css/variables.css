@@ -1,0 +1,34 @@
+:root {
+    --color-bg-main: #f9f8f6;
+    --color-bg-widget: #ffffff;
+    --color-primary: #355326;
+    --color-secondary: #7c9982;
+
+    /* Typography */
+    --color-text-main: #23301a;
+    --colot-text-muted: #b39d96;
+    --color-border: #e7caa9;
+
+    --font-main: sans-serif;
+    --font-mono: monospace;
+    --font-size-main: 16px;
+
+    /* Status Colors */
+    --color-water: #7393A7;
+    --color-fertilize: #C47D5E;
+    --color-alert: #994B45;
+    --color-hover: #558976;
+
+}
+
+body.dark-theme {
+    --color-bg-main: #1a2016;
+    --color-bg-widget: #222b1e;
+    --color-primary: #7c9982;
+    --color-secondary: #355326;
+
+    --color-text-main: #f9f8f6;
+    --color-text-muted: #b39d96;
+
+    --color-border: #355326;
+}
