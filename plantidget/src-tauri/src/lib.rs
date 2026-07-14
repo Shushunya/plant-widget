@@ -1,7 +1,9 @@
-use tauri::Manager;
-use std::fs::File;
-use std::io::BufReader;
 use serde::{Deserialize, Serialize};
+use tauri::Manager;
+
+use std::fs::{self, File};
+use std::io::BufReader;
+use std::path::Path;
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Plant {
@@ -18,6 +20,13 @@ pub fn run() {
         .setup(|app| {
             let file_path = "plants.json";
             let mut has_plants = false;
+
+            if !Path::new(file_path).exists() {
+                println!("No plants.json file");
+                fs::write(file_path, "[]").unwrap_or_else(|e| {
+                    println!("Failed to create plants.json: {}", e)
+                })
+            }
 
             if let Ok(file) = File::open(file_path) {
                 let reader = BufReader::new(file);
