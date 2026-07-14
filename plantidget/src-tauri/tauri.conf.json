@@ -13,7 +13,7 @@
         "title": "Plant Dashboard",
         "label": "main",
         "url": "main.html",
-        "visible": true
+        "visible": false
       },
       {
         "title": "Plant Widget",
@@ -23,7 +23,7 @@
         "height": 270,
         "decorations": false,
         "resizable": false,
-        "alwaysOnTop":true
+        "visible": false
       }
     ],
     "security": {
