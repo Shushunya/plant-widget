@@ -1,0 +1,1 @@
+pub const PLANTS_DB_PATH: &str = "plants.json";

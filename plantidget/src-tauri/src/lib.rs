@@ -1,34 +1,31 @@
-use serde::{Deserialize, Serialize};
+mod constants;
+mod plants;
+
 use tauri::Manager;
 
 use std::fs::{self, File};
 use std::io::BufReader;
 use std::path::Path;
 
-#[derive(Debug, Serialize, Deserialize)]
-struct Plant {
-    id: u32, 
-    name: String,
-    water_period: u32,
-    fertilize_period: u32
-}
+use constants::PLANTS_DB_PATH;
+use plants::{read_plants, Plant};
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
+        .invoke_handler(tauri::generate_handler![read_plants])
         .setup(|app| {
-            let file_path = "plants.json";
             let mut has_plants = false;
 
-            if !Path::new(file_path).exists() {
+            if !Path::new(PLANTS_DB_PATH).exists() {
                 println!("No plants.json file");
-                fs::write(file_path, "[]").unwrap_or_else(|e| {
+                fs::write(PLANTS_DB_PATH, "[]").unwrap_or_else(|e| {
                     println!("Failed to create plants.json: {}", e)
                 })
             }
 
-            if let Ok(file) = File::open(file_path) {
+            if let Ok(file) = File::open(PLANTS_DB_PATH) {
                 let reader = BufReader::new(file);
 
 
