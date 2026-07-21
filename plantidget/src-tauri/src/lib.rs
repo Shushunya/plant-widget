@@ -8,13 +8,13 @@ use std::io::BufReader;
 use std::path::Path;
 
 use constants::PLANTS_DB_PATH;
-use plants::{read_plants, Plant};
+use plants::{read_plants, add_plant, Plant};
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![read_plants])
+        .invoke_handler(tauri::generate_handler![read_plants, add_plant])
         .setup(|app| {
             let mut has_plants = false;
 

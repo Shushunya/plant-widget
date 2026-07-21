@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use std::fs::File;
+use std::fs::{self, File};
 use std::io::BufReader;
 use crate::constants::PLANTS_DB_PATH;
 
@@ -67,20 +67,11 @@ pub struct Plant {
     pub soil: SoilType,
 
     pub last_watered: Option<String>,
-    pub last_fertilizes: Option<String>,
+    pub last_fertilized: Option<String>,
 
     // 5. Custom Information
     pub notes: Vec<String>,
 }
-
-// #[derive(Debug, Serialize, Deserialize)]
-// pub struct Plant {
-//     id: u32, 
-//     name: String,
-//     water_period: u32,
-//     fertilize_period: u32
-// }
-
 
 #[tauri::command]
 pub fn read_plants() -> Result<Vec<Plant>, String> {
@@ -95,4 +86,60 @@ pub fn read_plants() -> Result<Vec<Plant>, String> {
     }
 
     Ok(loaded_plants)
+}
+
+#[tauri::command]
+// pub fn add_plant(new_plant: Plant) -> Result<String, String> {
+pub fn add_plant() -> Result<String, String> {
+
+    let mut plant_vec: Vec<Plant> = match read_plants() {
+        Ok(plants) => plants,
+        Err(_) => Vec::new(),
+    };
+
+
+    // HARDCODED PART FOR TESTING TO BE DELETED
+    let monstera_water_care = SeasonalCare {
+        growth_interval_days: 6,
+        dormant_interval_days: 14
+    };
+
+    let monster_fert_care = SeasonalCare {
+        growth_interval_days: 7,
+        dormant_interval_days: 30,
+    };
+
+let new_plant = Plant {
+        id: 2,
+        name: "Monstera regular".to_string(),
+        genus: Genus::Monstera,
+        species: "M. deliciosa".to_string(),
+
+        growth_start: Month::March,
+        growth_end: Month::October,
+
+        watering: monstera_water_care,
+        fertilizing: monster_fert_care,
+        fertilizer_dilution: "1:2".to_string(),
+
+        misting_interval_days: Some(7),
+
+        light: LightRequirement::BrightIndirect,
+        soil: SoilType::WellDraining,
+
+        last_watered: None,
+        last_fertilized: None,
+
+        notes: vec!["Needs a stick to lean on".to_string(),]
+    };
+
+    plant_vec.push(new_plant);
+
+    let json_data = serde_json::to_string_pretty(&plant_vec)
+        .map_err(|e| e.to_string())?;
+    fs::write(PLANTS_DB_PATH, &json_data)
+        .map_err(|e| e.to_string())?;
+    
+    let res_str = format!("Successfully added a plant: {}", json_data);
+    Ok(res_str)
 }
