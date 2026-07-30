@@ -1,1 +1,52 @@
-{}
+[
+  {
+    "id": 2,
+    "name": "Monstera regular",
+    "genus": "Monstera",
+    "species": "M. deliciosa",
+    "growth_start": "March",
+    "growth_end": "October",
+    "watering": {
+      "growth_interval_days": 6,
+      "dormant_interval_days": 14
+    },
+    "fertilizing": {
+      "growth_interval_days": 7,
+      "dormant_interval_days": 30
+    },
+    "fertilizer_dilution": "1:2",
+    "misting_interval_days": 7,
+    "light": "BrightIndirect",
+    "soil": "WellDraining",
+    "last_watered": null,
+    "last_fertilized": null,
+    "notes": [
+      "Needs a stick to lean on"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Monstera regular",
+    "genus": "Monstera",
+    "species": "M. deliciosa",
+    "growth_start": "March",
+    "growth_end": "October",
+    "watering": {
+      "growth_interval_days": 6,
+      "dormant_interval_days": 14
+    },
+    "fertilizing": {
+      "growth_interval_days": 7,
+      "dormant_interval_days": 30
+    },
+    "fertilizer_dilution": "1:2",
+    "misting_interval_days": 7,
+    "light": "BrightIndirect",
+    "soil": "WellDraining",
+    "last_watered": null,
+    "last_fertilized": null,
+    "notes": [
+      "Needs a stick to lean on"
+    ]
+  }
+]
