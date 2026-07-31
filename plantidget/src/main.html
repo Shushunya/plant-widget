@@ -8,117 +8,68 @@
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/main.css" />
+
+    <link rel="stylesheet" href="css/mainwin/header.css" />
+    <link rel="stylesheet" href="css/utils.css" />
 </head>
 
 <body>
-    <div class="app-container">
+
+    <div id="settingsView" class="view-container hidden">
+        <h2>Settings</h2>
+        <p>Theme, timezone, and preferences go here.</p>
+        <button id="settingsBackToMainBtn">
+            Back
+        </button>
+    </div>
+
+    <div id="aboutView" class="view-container hidden">
+        <h2>About the App</h2>
+        <p>Some long text</p>
+        <button id="aboutBackToMainBtn">
+            Back
+        </button>
+    </div>
+
+    <div id="mainView" class="view-container">
 
         <header>
+
             <div class="header-info">
-                <h1>Привіт!</h1>
-                <time id="current-date" datetime="2024-04-24">Середа, 24 Квітня 2024</time>
+                <time id="dateBlock" datetime="2026-07-30">July 30, 2026</time>
+                <span>Aveiro, Portugal</span>
+            </div>
+            <div class="header-tools">
+                <button>Add plant</button>
+                <div class="tools-icons">
+
+                    <button id="mainSettingsBtn" class="icon-btn tooltip-target" data-tooltip="Settings">
+                        <svg class="tooltip" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
+                            width="20px" fill="#e3e3e3">
+                            <path
+                                d="m403-96-22-114q-23-9-44.5-21T296-259l-110 37-77-133 87-76q-2-12-3-24t-1-25q0-13 1-25t3-24l-87-76 77-133 110 37q19-16 40.5-28t44.5-21l22-114h154l22 114q23 9 44.5 21t40.5 28l110-37 77 133-87 76q2 12 3 24t1 25q0 13-1 25t-3 24l87 76-77 133-110-37q-19 16-40.5 28T579-210L557-96H403Zm59-72h36l19-99q38-7 71-26t57-48l96 32 18-30-76-67q6-17 9.5-35.5T696-480q0-20-3.5-38.5T683-554l76-67-18-30-96 32q-24-29-57-48t-71-26l-19-99h-36l-19 99q-38 7-71 26t-57 48l-96-32-18 30 76 67q-6 17-9.5 35.5T264-480q0 20 3.5 38.5T277-406l-76 67 18 30 96-32q24 29 57 48t71 26l19 99Zm18-168q60 0 102-42t42-102q0-60-42-102t-102-42q-60 0-102 42t-42 102q0 60 42 102t102 42Zm0-144Z" />
+                        </svg>
+                    </button>
+                    <button id="aboutBtn" class="icon-btn tooltip-target" data-tooltip="About">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            fill="#e3e3e3">
+                            <path
+                                d="M444-288h72v-240h-72v240Zm61.5-322.29q10.5-10.29 10.5-25.5t-10.29-25.71q-10.29-10.5-25.5-10.5t-25.71 10.29q-10.5 10.29-10.5 25.5t10.29 25.71q10.29 10.5 25.5 10.5t25.71-10.29ZM480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Zm0-312Z" />
+                        </svg>
+                    </button>
+                </div>
+
             </div>
 
-            <div class="weather-panel">
-                <span>🌡️ 22°C</span>
-                <span>💧 Вологість 45%</span>
-            </div>
-
-            <button class="add-btn" id="btn-add-plant">Додати рослину</button>
         </header>
 
-        <div class="content-wrapper">
-            <div id="dashboard-view" class="dashboard-view">
-                <main>
-                    <div class="controls">
-                        <input type="text" placeholder="Пошук за назвою або видом...">
-                        <select>
-                            <option value="all">Усі рослини</option>
-                            <option value="favorites">Улюблені</option>
-                            <option value="needs-care">Потребують уваги</option>
-                        </select>
-                    </div>
+        <main>
+            <div>Container 1</div>
+            <div>Container 2</div>
+        </main>
 
-                    <div class="plant-grid">
-                        <div class="plant-card">
-                            <h3>Monstera regular</h3>
-                            <p>M. deliciosa</p>
-                            <span class="status-badge status-good">Полита</span>
-                        </div>
-                        <div class="plant-card">
-                            <h3>Ficus Benjamin</h3>
-                            <p>F. benjamina</p>
-                            <span class="status-badge status-alert">Полити сьогодні!</span>
-                        </div>
-                        <div class="plant-card">
-                            <h3>Snake Plant</h3>
-                            <p>Sansevieria</p>
-                            <span class="status-badge status-warning">Добриво через 2 дні</span>
-                        </div>
-                    </div>
-                </main>
-
-                <aside>
-                    <div class="widget">
-                        <h2>Завдання на сьогодні</h2>
-                        <ul class="urgent-list">
-                            <li>
-                                <div class="task-info">
-                                    <strong>Ficus Benjamin</strong>
-                                    <span>Полив</span>
-                                </div>
-                                <button class="action-btn">Готово</button>
-                            </li>
-                            <li>
-                                <div class="task-info">
-                                    <strong>Calathea</strong>
-                                    <span>Обприскування</span>
-                                </div>
-                                <button class="action-btn">Готово</button>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="widget">
-                        <h2>Квітень 2024</h2>
-                        <div class="calendar-grid">
-                            <div class="calendar-header">Пн</div>
-                            <div class="calendar-header">Вв</div>
-                            <div class="calendar-header">Ср</div>
-                            <div class="calendar-header">Чт</div>
-                            <div class="calendar-header">Пт</div>
-                            <div class="calendar-header">Сб</div>
-                            <div class="calendar-header">Нд</div>
-
-                            <div class="calendar-day">22</div>
-                            <div class="calendar-day">23</div>
-                            <div class="calendar-day today">24</div>
-                            <div class="calendar-day has-task">25</div>
-                            <div class="calendar-day">26</div>
-                            <div class="calendar-day">27</div>
-                            <div class="calendar-day">28</div>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-            <div id="form-view" style="display: none;">
-                <form action="" method="get" class="form-example">
-                    <div class="form-example">
-                        <label for="name">Enter your name: </label>
-                        <input type="text" name="name" id="name" required />
-                    </div>
-                    <div class="form-example">
-                        <label for="email">Enter your email: </label>
-                        <input type="email" name="email" id="email" required />
-                    </div>
-                    <div class="form-example">
-                        <input type="submit" value="Subscribe!" />
-                    </div>
-                </form>
-
-            </div>
-        </div>
     </div>
+    <script type="module" src="main.js"></script>
 
 </body>
 
