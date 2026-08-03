@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/main.css" />
 
     <link rel="stylesheet" href="css/mainwin/header.css" />
+    <link rel="stylesheet" href="css/mainwin/addPlantForm.css" />
     <link rel="stylesheet" href="css/utils.css" />
 </head>
 
@@ -31,6 +32,113 @@
         </button>
     </div>
 
+    <div id="addPlantFromView" class="view-container hidden">
+        <h1>Form to add a plant</h1>
+        <div class="form-container">
+
+        
+        <form name="addPlant" >
+            <section class="general-info-section">
+                <h2>General plant info</h2>
+                <fieldset>
+                    <legend>Plant Info</legend>
+                    <p>
+                        <input type="text" name="plantName" id="plantName" />
+                        <label for="plantName">Casual plant name</label>
+                    </p>
+                    <p>
+                        <input type="text" name="plantGenus" id="plantGenus" />
+                        <label for="plantGenus">Genus</label>
+                    </p>
+                    <p>
+                        <input type="text" name="plantSpecies" id="plantSpecies" />
+                        <label for="plantSpecies">Species</label>
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>Last care</legend>
+                    <p>
+                        <input type="date" name="lastWatered" id="lastWatered" />
+                        <label for="lastWatered">Last watered</label>
+                    </p>
+                    <p>
+                        <input type="date" name="lastFert" id="lastFert" />
+                        <label for="lastFert">Last fertilized</label>
+                    </p>
+                </fieldset>
+            </section>
+
+            <section>
+                <h2>Care</h2>
+                <fieldset>
+                    <legend>Lifecycle</legend>
+                    <p>
+                        <input type="month" name="growthStartMonth" id="growthStartMonth" />
+                        <label for="growthStartMonth">Start of the growing period: </label>
+                    </p>
+                    <p>
+                        <input type="month" name="growthEndMonth" id="" growthEndMonth />
+                        <label for="growthEndMonth">End of the growing period: </label>
+                    </p>
+                    <p>
+                        <input type="text" name="fertDillution" id="fertDillution" />
+                        <label for="fertDillution">Fertilizer dillution</label>
+                    </p>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Growth period</legend>
+                    <p>
+                        <input type="number" name="growthPeriodWaterPeriod" id="growthPeriodWaterPeriod" />
+                        <label for="growthPeriodWaterPeriod">Watering period</label>
+                    </p>
+                    <p>
+                        <input type="number" name="growthPeriodFertPeriod" id="growthPeriodFertPeriod" />
+                        <label for="growthPeriodFertPeriod">Fertilizing period</label>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Dormant period</legend>
+                    <p>
+                        <input type="number" name="dormantPeriodWaterPeriod" id="dormantPeriodWaterPeriod" />
+                        <label for="dormantPeriodWaterPeriod">Watering period</label>
+                    </p>
+                    <p>
+                        <input type="number" name="dormantPeriodFertPeriod" id="dormantPeriodFertPeriod" />
+                        <label for="dormantPeriodFertPeriod">Fertilizing period</label>
+                    </p>
+                </fieldset>
+            </section>
+
+            <section>
+                <h2>Environment</h2>
+                <fieldset>
+                    <p>
+                        <input type="text" name="lightReq" id="lightReq" />
+                        <label for="lightReq">Light Requirement</label>
+                    </p>
+                    <p>
+                        <input type="text" name="soilType" id="soilType" />
+                        <label for="soilType">Soil type</label>
+                    </p>
+                    <p>
+                        <input type="number" name="mistInterval" id="mistInterval" />
+                        <label for="mistInterval">Misting interval</label>
+                    </p>
+                </fieldset>
+            </section>
+
+            <section>
+                <h2>Notes</h2>
+                <input type="text" name="plantNotes" id="plantNotes" />
+            </section>
+        </form>
+        </div>
+        <button id="savePlantBtn">Save</button>
+    </div>
+
     <div id="mainView" class="view-container">
 
         <header>
@@ -40,7 +148,7 @@
                 <span>Aveiro, Portugal</span>
             </div>
             <div class="header-tools">
-                <button>Add plant</button>
+                <button id="addPlantBtn" data-i18n="btn_add_plant">Add plant</button>
                 <div class="tools-icons">
 
                     <button id="mainSettingsBtn" class="icon-btn tooltip-target" data-tooltip="Settings">
