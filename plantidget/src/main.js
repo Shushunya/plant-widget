@@ -45,14 +45,33 @@ async function sendPlantToBackend() {
 
 const dateElement = document.getElementById("dateBlock");
 
-const settingsBtn = document.getElementById("mainSettingsBtn");
-const aboutBtn = document.getElementById("aboutBtn");
-const settingsBackToMainBtn = document.getElementById("settingsBackToMainBtn");
-const aboutBackToMainBtn = document.getElementById("aboutBackToMainBtn");
-
 const mainView = document.getElementById("mainView");
+
+const settingsBtn = document.getElementById("mainSettingsBtn");
+const settingsBackToMainBtn = document.getElementById("settingsBackToMainBtn");
 const settingsView = document.getElementById("settingsView");
+
+const aboutBtn = document.getElementById("aboutBtn");
+const aboutBackToMainBtn = document.getElementById("aboutBackToMainBtn");
 const aboutView = document.getElementById("aboutView");
+
+const addPlantBtn = document.getElementById("addPlantBtn");
+const savePlantBtn = document.getElementById("savePlantBtn");
+const addPlantView = document.getElementById("addPlantView");
+
+if (addPlantBtn) {
+    addPlantBtn.addEventListener("click", () => {
+        mainView.classList.add("hidden");
+        addPlantView.classList.remove("hidden");
+    })
+}
+
+if (savePlantBtn) {
+    savePlantBtn.addEventListener("click", () => {
+        addPlantView.classList.add("hidden");
+        mainView.classList.remove("hidden");
+    })
+}
 
 if (settingsBtn) {
   settingsBtn.addEventListener("click", () => {

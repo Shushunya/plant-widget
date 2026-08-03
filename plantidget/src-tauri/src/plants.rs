@@ -49,7 +49,7 @@ pub struct Plant {
     pub id: u32,
     pub name: String,         // e.g., "Monstera regular"
     pub genus: Genus,
-    pub species: String,      // e.g., "M. deliciosa"
+    pub species: Option<String>,      // e.g., "M. deliciosa"
 
     // 2. Lifecycle
     pub growth_start: Month,
