@@ -113,7 +113,7 @@ let new_plant = Plant {
         id: 2,
         name: "Monstera regular".to_string(),
         genus: Genus::Monstera,
-        species: "M. deliciosa".to_string(),
+        species: Some("M. deliciosa".to_string()),
 
         growth_start: Month::March,
         growth_end: Month::October,
