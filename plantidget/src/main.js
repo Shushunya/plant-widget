@@ -57,7 +57,7 @@ const aboutView = document.getElementById("aboutView");
 
 const addPlantBtn = document.getElementById("addPlantBtn");
 const savePlantBtn = document.getElementById("savePlantBtn");
-const addPlantView = document.getElementById("addPlantView");
+const addPlantView = document.getElementById("addPlantFromView");
 
 if (addPlantBtn) {
     addPlantBtn.addEventListener("click", () => {
@@ -121,8 +121,54 @@ function getDateNow() {
     dateElement.textContent = `${months[month]} ${day}, ${year}`;
     dateElement.setAttribute("datetime", datetimeAtr);
     
-    // console.log(now.toDateString());
+    console.log(now.toLocaleString('default', {month: 'long'}));
 }
 
 getDateNow();
 // document.getElementById('save-btn').addEventListener('click', sendPlantToBackend);
+
+// 1. Set default state
+let currentLanguage = 'ua'; 
+let translations = {};
+
+// 2. Fetch the JSON dictionary
+async function loadLanguage(lang) {
+    try {
+        // Tauri serves files via localhost, so standard fetch works perfectly
+        const response = await fetch(`./locales/${lang}.json`);
+        translations = await response.json();
+        
+        // Update the global language variable and apply the text
+        currentLanguage = lang;
+        applyTranslations();
+        
+        // Update the HTML lang attribute for accessibility
+        document.documentElement.lang = lang;
+    } catch (error) {
+        console.error(`Failed to load language: ${lang}`, error);
+    }
+}
+
+// 3. Swap out the text in the DOM
+function applyTranslations() {
+    // Find all elements with standard text translations
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[key]) {
+            element.textContent = translations[key];
+        }
+    });
+
+    // Find all elements that need placeholder translations (like search bars)
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[key]) {
+            element.placeholder = translations[key];
+        }
+    });
+}
+
+// Initialize the app with your preferred language
+document.addEventListener('DOMContentLoaded', () => {
+    loadLanguage('en'); // Load Ukrainian on boot
+});
