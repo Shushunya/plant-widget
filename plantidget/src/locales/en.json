@@ -1,8 +1,0 @@
-{
-    "app_title": "My Plants",
-    "header_greeting": "Hello! 👋",
-    "weather_humidity": "Humidity",
-    "btn_add_plant": "+ Add Plant",
-    "search_placeholder": "Search by name or species...",
-    "status_watered": "Watered"
-}
