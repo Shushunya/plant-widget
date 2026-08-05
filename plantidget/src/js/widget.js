@@ -1,3 +1,6 @@
+import { loadLanguage } from './modules/i18n.js';
+import { updateMainHeaderDate } from './modules/calendar.js';
+
 const { getCurrentWindow, Window } = window.__TAURI__.window;
 const appWindow = getCurrentWindow();
 
@@ -21,7 +24,30 @@ const settingsBtn = document.getElementById("openSettingsBtn");
 let currMonth;
 let currYear;
 
-console.log(appWindow)
+if (openMainBtn) {
+        openMainBtn.addEventListener('click', async () => {
+            try {
+                // 3. Find the main window by its label (defined in tauri.conf.json)
+                const mainWindow = await Window.getByLabel('main');
+                
+                if (mainWindow) {
+                    // Show it and bring it to the front
+                    await mainWindow.show();
+                    await mainWindow.setFocus();
+                } else {
+                    console.error("Main window not found. Check the label in tauri.conf.json");
+                }
+
+                // 4. Hide the widget window
+                const currentWindow = getCurrentWindow();
+                await currentWindow.hide(); 
+                
+            } catch (error) {
+                console.error("Failed to switch windows:", error);
+            }
+        });
+    }
+
 
 function updateMonthDisplay() {
   if (monthYearElement) {
@@ -131,4 +157,10 @@ window.addEventListener("DOMContentLoaded", () => {
       appWindow.close();
     });
   }
+});
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadLanguage('uk-UA');
+    updateMainHeaderDate();          // Triggers the date to redraw in the new language
+
 });
