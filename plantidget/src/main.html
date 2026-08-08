@@ -16,130 +16,130 @@
 
 <body>
 
-    <div id="settingsView" class="view-container hidden">
+    <div id="settingsView" class="app-view hidden">
         <h2>Settings</h2>
         <p>Theme, timezone, and preferences go here.</p>
-        <button id="settingsBackToMainBtn">
+        <button id="settingsBackToMainBtn" class="nav-btn" data-target="mainView">
             Back
         </button>
     </div>
 
-    <div id="aboutView" class="view-container hidden">
+    <div id="aboutView" class="app-view hidden">
         <h2>About the App</h2>
         <p>Some long text</p>
-        <button id="aboutBackToMainBtn">
+        <button id="aboutBackToMainBtn" class="nav-btn" data-target="mainView">
             Back
         </button>
     </div>
 
-    <div id="addPlantFromView" class="view-container hidden">
+    <div id="addPlantFromView" class="app-view hidden">
         <h1>Form to add a plant</h1>
         <div class="form-container">
 
-        
-        <form name="addPlant" >
-            <section class="general-info-section">
-                <h2>General plant info</h2>
-                <fieldset>
-                    <legend>Plant Info</legend>
-                    <p>
-                        <input type="text" name="plantName" id="plantName" />
-                        <label for="plantName">Casual plant name</label>
-                    </p>
-                    <p>
-                        <input type="text" name="plantGenus" id="plantGenus" />
-                        <label for="plantGenus">Genus</label>
-                    </p>
-                    <p>
-                        <input type="text" name="plantSpecies" id="plantSpecies" />
-                        <label for="plantSpecies">Species</label>
-                    </p>
-                </fieldset>
-                <fieldset>
-                    <legend>Last care</legend>
-                    <p>
-                        <input type="date" name="lastWatered" id="lastWatered" />
-                        <label for="lastWatered">Last watered</label>
-                    </p>
-                    <p>
-                        <input type="date" name="lastFert" id="lastFert" />
-                        <label for="lastFert">Last fertilized</label>
-                    </p>
-                </fieldset>
-            </section>
 
-            <section>
-                <h2>Care</h2>
-                <fieldset>
-                    <legend>Lifecycle</legend>
-                    <p>
-                        <input type="month" name="growthStartMonth" id="growthStartMonth" />
-                        <label for="growthStartMonth">Start of the growing period: </label>
-                    </p>
-                    <p>
-                        <input type="month" name="growthEndMonth" id="" growthEndMonth />
-                        <label for="growthEndMonth">End of the growing period: </label>
-                    </p>
-                    <p>
-                        <input type="text" name="fertDillution" id="fertDillution" />
-                        <label for="fertDillution">Fertilizer dillution</label>
-                    </p>
+            <form name="addPlant">
+                <section class="general-info-section">
+                    <h2>General plant info</h2>
+                    <fieldset>
+                        <legend>Plant Info</legend>
+                        <p>
+                            <input type="text" name="plantName" id="plantName" />
+                            <label for="plantName">Casual plant name</label>
+                        </p>
+                        <p>
+                            <input type="text" name="plantGenus" id="plantGenus" />
+                            <label for="plantGenus">Genus</label>
+                        </p>
+                        <p>
+                            <input type="text" name="plantSpecies" id="plantSpecies" />
+                            <label for="plantSpecies">Species</label>
+                        </p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Last care</legend>
+                        <p>
+                            <input type="date" name="lastWatered" id="lastWatered" />
+                            <label for="lastWatered">Last watered</label>
+                        </p>
+                        <p>
+                            <input type="date" name="lastFert" id="lastFert" />
+                            <label for="lastFert">Last fertilized</label>
+                        </p>
+                    </fieldset>
+                </section>
 
-                </fieldset>
+                <section>
+                    <h2>Care</h2>
+                    <fieldset>
+                        <legend>Lifecycle</legend>
+                        <p>
+                            <input type="month" name="growthStartMonth" id="growthStartMonth" />
+                            <label for="growthStartMonth">Start of the growing period: </label>
+                        </p>
+                        <p>
+                            <input type="month" name="growthEndMonth" id="" growthEndMonth />
+                            <label for="growthEndMonth">End of the growing period: </label>
+                        </p>
+                        <p>
+                            <input type="text" name="fertDillution" id="fertDillution" />
+                            <label for="fertDillution">Fertilizer dillution</label>
+                        </p>
 
-                <fieldset>
-                    <legend>Growth period</legend>
-                    <p>
-                        <input type="number" name="growthPeriodWaterPeriod" id="growthPeriodWaterPeriod" />
-                        <label for="growthPeriodWaterPeriod">Watering period</label>
-                    </p>
-                    <p>
-                        <input type="number" name="growthPeriodFertPeriod" id="growthPeriodFertPeriod" />
-                        <label for="growthPeriodFertPeriod">Fertilizing period</label>
-                    </p>
-                </fieldset>
+                    </fieldset>
 
-                <fieldset>
-                    <legend>Dormant period</legend>
-                    <p>
-                        <input type="number" name="dormantPeriodWaterPeriod" id="dormantPeriodWaterPeriod" />
-                        <label for="dormantPeriodWaterPeriod">Watering period</label>
-                    </p>
-                    <p>
-                        <input type="number" name="dormantPeriodFertPeriod" id="dormantPeriodFertPeriod" />
-                        <label for="dormantPeriodFertPeriod">Fertilizing period</label>
-                    </p>
-                </fieldset>
-            </section>
+                    <fieldset>
+                        <legend>Growth period</legend>
+                        <p>
+                            <input type="number" name="growthPeriodWaterPeriod" id="growthPeriodWaterPeriod" />
+                            <label for="growthPeriodWaterPeriod">Watering period</label>
+                        </p>
+                        <p>
+                            <input type="number" name="growthPeriodFertPeriod" id="growthPeriodFertPeriod" />
+                            <label for="growthPeriodFertPeriod">Fertilizing period</label>
+                        </p>
+                    </fieldset>
 
-            <section>
-                <h2>Environment</h2>
-                <fieldset>
-                    <p>
-                        <input type="text" name="lightReq" id="lightReq" />
-                        <label for="lightReq">Light Requirement</label>
-                    </p>
-                    <p>
-                        <input type="text" name="soilType" id="soilType" />
-                        <label for="soilType">Soil type</label>
-                    </p>
-                    <p>
-                        <input type="number" name="mistInterval" id="mistInterval" />
-                        <label for="mistInterval">Misting interval</label>
-                    </p>
-                </fieldset>
-            </section>
+                    <fieldset>
+                        <legend>Dormant period</legend>
+                        <p>
+                            <input type="number" name="dormantPeriodWaterPeriod" id="dormantPeriodWaterPeriod" />
+                            <label for="dormantPeriodWaterPeriod">Watering period</label>
+                        </p>
+                        <p>
+                            <input type="number" name="dormantPeriodFertPeriod" id="dormantPeriodFertPeriod" />
+                            <label for="dormantPeriodFertPeriod">Fertilizing period</label>
+                        </p>
+                    </fieldset>
+                </section>
 
-            <section>
-                <h2>Notes</h2>
-                <input type="text" name="plantNotes" id="plantNotes" />
-            </section>
-        </form>
+                <section>
+                    <h2>Environment</h2>
+                    <fieldset>
+                        <p>
+                            <input type="text" name="lightReq" id="lightReq" />
+                            <label for="lightReq">Light Requirement</label>
+                        </p>
+                        <p>
+                            <input type="text" name="soilType" id="soilType" />
+                            <label for="soilType">Soil type</label>
+                        </p>
+                        <p>
+                            <input type="number" name="mistInterval" id="mistInterval" />
+                            <label for="mistInterval">Misting interval</label>
+                        </p>
+                    </fieldset>
+                </section>
+
+                <section>
+                    <h2>Notes</h2>
+                    <input type="text" name="plantNotes" id="plantNotes" />
+                </section>
+            </form>
         </div>
-        <button id="savePlantBtn">Save</button>
+        <button id="savePlantBtn" class="nav-btn" data-target="mainView">Save</button>
     </div>
 
-    <div id="mainView" class="view-container">
+    <div id="mainView" class="app-view">
 
         <header>
 
@@ -148,17 +148,21 @@
                 <span>Aveiro, Portugal</span>
             </div>
             <div class="header-tools">
-                <button id="addPlantBtn" data-i18n="btn_add_plant">Add plant</button>
+                <button id="addPlantBtn" class="nav-btn" data-i18n="btn_add_plant" data-target="addPlantFromView">Add
+                    plant</button>
                 <div class="tools-icons">
 
-                    <button id="mainSettingsBtn" class="icon-btn tooltip-target" data-i18n-tooltip="settings_tooltip" aria-label="Settings" data-tooltip="Settings">
+                    <button id="mainSettingsBtn" class="icon-btn tooltip-target nav-btn"
+                        data-i18n-tooltip="settings_tooltip" data-target="settingsView" aria-label="Settings"
+                        data-tooltip="Settings">
                         <svg class="tooltip" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
                             width="20px" fill="#e3e3e3">
                             <path
                                 d="m403-96-22-114q-23-9-44.5-21T296-259l-110 37-77-133 87-76q-2-12-3-24t-1-25q0-13 1-25t3-24l-87-76 77-133 110 37q19-16 40.5-28t44.5-21l22-114h154l22 114q23 9 44.5 21t40.5 28l110-37 77 133-87 76q2 12 3 24t1 25q0 13-1 25t-3 24l87 76-77 133-110-37q-19 16-40.5 28T579-210L557-96H403Zm59-72h36l19-99q38-7 71-26t57-48l96 32 18-30-76-67q6-17 9.5-35.5T696-480q0-20-3.5-38.5T683-554l76-67-18-30-96 32q-24-29-57-48t-71-26l-19-99h-36l-19 99q-38 7-71 26t-57 48l-96-32-18 30 76 67q-6 17-9.5 35.5T264-480q0 20 3.5 38.5T277-406l-76 67 18 30 96-32q24 29 57 48t71 26l19 99Zm18-168q60 0 102-42t42-102q0-60-42-102t-102-42q-60 0-102 42t-42 102q0 60 42 102t102 42Zm0-144Z" />
                         </svg>
                     </button>
-                    <button id="aboutBtn" class="icon-btn tooltip-target" data-i18n-tooltip="about_tooltip" aria-label="About" data-tooltip="About">
+                    <button id="aboutBtn" class="icon-btn tooltip-target nav-btn" data-i18n-tooltip="about_tooltip"
+                        data-target="aboutView" aria-label="About" data-tooltip="About">
                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
                             fill="#e3e3e3">
                             <path
